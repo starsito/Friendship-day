@@ -3,13 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Friendship Day</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Friendship Day</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+            background: #000;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            color: #fff;
+        }
+
+        h1 {
+            font-size: 4em;
+            margin: 0;
+        }
+
+        p {
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: animStar 50s linear infinite;
+        }
+
+        @keyframes animStar {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-2000px);
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
+        <div class="stars"></div>
         <h1>Happy Friendship Day</h1>
         <p>By Starsito</p>
     </div>
+
+    <script>
+        function createStars() {
+            const stars = document.querySelector('.stars');
+            for (let i = 0; i < 500; i++) {
+                let star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 2000}px`;
+                star.style.animationDelay = `${Math.random() * 50}s`;
+                stars.appendChild(star);
+            }
+        }
+
+        createStars();
+    </script>
 </body>
 </html>
