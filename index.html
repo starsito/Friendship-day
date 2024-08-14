@@ -1,91 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Friendship Day</title>
+    <title>Invitación de Cumpleaños de Starsito</title>
+    <!-- Incluir Font Awesome para las estrellas -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body, html {
+        body {
             margin: 0;
             padding: 0;
-            height: 100%;
-            overflow: hidden;
-            font-family: 'Arial', sans-serif;
-            background: #000;
-        }
-
-        .container {
-            position: relative;
-            width: 100%;
-            height: 100%;
+            font-family: Arial, sans-serif;
+            color: white;
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
-            text-align: center;
-            color: #fff;
-        }
-
-        h1 {
-            font-size: 4em;
-            margin: 0;
-        }
-
-        p {
-            font-size: 1.5em;
-            margin-top: 20px;
-        }
-
-        .stars {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: transparent;
+            height: 100vh;
+            background: url('https://raw.githubusercontent.com/YourUsername/YourRepoName/main/leo-constellation.jpg') no-repeat center center fixed;
+            background-size: cover;
             overflow: hidden;
         }
 
-        .star {
+        .invitation {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 24px;
+            margin-bottom: 0;
+        }
+
+        .shooting-star {
             position: absolute;
             width: 2px;
             height: 2px;
             background: white;
             border-radius: 50%;
-            animation: animStar 50s linear infinite;
+            animation: shooting 2s infinite ease-in-out;
         }
 
-        @keyframes animStar {
-            from {
-                transform: translateY(0);
+        @keyframes shooting {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 1;
             }
-            to {
-                transform: translateY(-2000px);
+            100% {
+                transform: translateY(-100vh) translateX(100vw);
+                opacity: 0;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="stars"></div>
-        <h1>Happy Friendship Day</h1>
-        <p>By Starsito</p>
+    <div class="invitation">
+        <h1>STARSITO TE INVITA A SU CUMPLEAÑOS</h1>
+        <p>14 de agosto a las 20:30 horas</p>
     </div>
 
-    <script>
-        function createStars() {
-            const stars = document.querySelector('.stars');
-            for (let i = 0; i < 500; i++) {
-                let star = document.createElement('div');
-                star.className = 'star';
-                star.style.left = `${Math.random() * 100}%`;
-                star.style.top = `${Math.random() * 2000}px`;
-                star.style.animationDelay = `${Math.random() * 50}s`;
-                stars.appendChild(star);
-            }
-        }
-
-        createStars();
-    </script>
+    <!-- Crear varias estrellas fugaces -->
+    <div class="shooting-star" style="top: 50%; left: 50%;"></div>
+    <div class="shooting-star" style="top: 20%; left: 70%;"></div>
+    <div class="shooting-star" style="top: 80%; left: 30%;"></div>
+    <div class="shooting-star" style="top: 10%; left: 10%;"></div>
+    <div class="shooting-star" style="top: 90%; left: 90%;"></div>
 </body>
 </html>
